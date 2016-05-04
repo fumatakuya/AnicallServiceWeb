@@ -1,316 +1,218 @@
-<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Anicall</title>
-  <!-- BootstrapのCSS読み込み -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Scroll Fixed Navigation</title>
+	<meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			font-family: 'Lato', sans-serif;
+			background: #eee;
+		}
+		article {
+			height: 1000px;
+			margin: 100px auto;
+			text-align: center;
+			line-height: 1.9;
+		}
+		article p {
+			margin-bottom: 1em;
+		}
+		a {
+			color: #0b8793;
+		}
+		#main-visual {
+			background: #1d76a6;
+			background: -webkit-linear-gradient(90deg, #360033 10%, #0b8793 90%);
+			background:    -moz-linear-gradient(90deg, #360033 10%, #0b8793 90%);
+			background:     -ms-linear-gradient(90deg, #360033 10%, #0b8793 90%);
+			background:      -o-linear-gradient(90deg, #360033 10%, #0b8793 90%);
+			background:         linear-gradient(90deg, #360033 10%, #0b8793 90%);
+			height: 700px;
+		}
 
-  <!-- OTHER STYLES -->
-  <link href="css/Anicall-Service-Web-style.css" rel="stylesheet">
+		footer {
+			padding: 30px;
+			text-align: center;
+			border-top: solid 1px #bbb;
+		}
+		footer a {
+			color: #666;
+			text-decoration: none;
+		}
 
-  <!-- jQuery読み込み -->
-  <script src="js/jquery-2.2.3.min.js"></script>
-  <!-- BootstrapのJS読み込み -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery-2.2.3.min.js"></script>
-  <script>
-    (function($) {
-      $(function() {
-        var $header = $('#top-head');
-        $(window).scroll(function() {
-          if ($(window).scrollTop() > 50) {
-            $header.addClass('fixed');
-          } else {
-            $header.removeClass('fixed');
-          }
-        });
-      });
-    })(jQuery);
-  </script>
+
+		.inner {
+			width: 980px;
+			margin: 0 auto;
+		}
+		.inner:after {
+			content: "";
+			clear: both;
+			display: block;
+		}
+
+		/* header */
+		#top-head {
+			position: fixed;
+			width: 100%;
+			margin: 0 auto;
+			padding: 30px 0 0;
+			line-height: 1;
+			z-index: 999;
+		}
+		#top-head:after {
+			content: "";
+			display: block;
+			height: 1px;
+			background: #fff;
+			width: 980px;
+			margin: 30px auto 0;
+		}
+
+		#top-head a,
+		#top-head {
+			color: #fff;
+			text-decoration: none;
+		}
+
+		#top-head .inner {
+			position: relative;
+
+		}
+		#top-head .logo {
+			float: left;
+			font-size: 32px;
+			margin-left: 25px;
+		}
+		#global-nav ul {
+			list-style: none;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			font-size: 14px;
+		}
+		#global-nav ul li {
+			float: left;
+			position: relative;
+
+		}
+		#global-nav ul li a {
+			padding: 0 30px;
+		}
+
+		/* Btn Hover */
+		#global-nav ul li:after {
+			position: absolute;
+			content: "";
+			display: block;
+			width: 100%;
+			height: 3px;
+			bottom: -20px;
+			transition: all 0.3s ease;
+			-webkit-transition: all 0.3s ease;
+			-moz-transition: all 0.3 ease;
+			-o-transition: all 0.3 ease;
+		}
+		#global-nav ul li:hover:after {
+			background: #fff;
+			bottom: -30px;
+		}
+
+		/* Fixed */
+		#top-head.fixed {
+			padding-top: 15px;
+			background: #fff;
+			background: rgba(255,255,255,.7);
+		}
+		#top-head.fixed .logo {
+			font-size: 24px;
+			color: #333;
+			margin-left: 10px;
+		}
+
+		#top-head.fixed:after {
+			width: 100%;
+			margin-top: 20px;
+		}
+		#top-head.fixed #global-nav ul li a {
+			color: #333;
+			padding: 0 20px;
+		}
+
+		/* Fixed Btn Hover */
+		#top-head.fixed #global-nav ul li:after {
+			bottom: -10px;
+		}
+		#top-head.fixed #global-nav ul li:hover:after {
+			background: #0b8793;
+			bottom: -20px;
+		}
+
+		/* transition */
+		#top-head,
+		#top-head:after,
+		#top-head .logo,
+		#global-nav ul li,
+		#global-nav ul li a {
+			transition: all 0.3s ease;
+			-webkit-transition: all 0.3s ease;
+			-moz-transition: all 0.3s ease;
+			-o-transition: all 0.3s ease;
+		}
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script>
+		(function($) {
+			$(function() {
+				var $header = $('#top-head');
+				$(window).scroll(function() {
+					if ($(window).scrollTop() > 50) {
+						$header.addClass('fixed');
+					} else {
+						$header.removeClass('fixed');
+					}
+				});
+			});
+		})(jQuery);
+	</script>
 </head>
 <body>
-  <!--
-  =================================
-  HEADER
-  =================================
--->
-<header id="top-head">
-  <div class="inner">
-    <h1 class="logo">Anicall</h1>
-    <nav id="global-nav">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">aaaa</a></li>
-        <li><a href="#">bbbb</a></li>
-        <li><a href="#">cccc</a></li>
-        <li><a href="#">dddd</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<div class="hero-unit">
-  <h1>Twitter Bootstrapの使い方</h1>
-  <p>Twitter Bootstrapの使い方をサンプルもつけながら説明していきます。<br>
-    下記説明以外にも機能はありますが詳しく知りたい方は本家ページを参照して下さい。</p>
-  </div>
-  <div class="container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>名前</th>
-          <th>メールアドレス</th>
-          <th>電話番号</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>煌木 太郎</td>
-          <td>taro.kirameki@example.com</td>
-          <td>09011112222</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>煌木 次郎</td>
-          <td>jiro.kirameki@example.com</td>
-          <td>09033334444</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>煌木 花子</td>
-          <td>hanako.kirameki@example.com</td>
-          <td>09055556666</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>名前</th>
-          <th>メールアドレス</th>
-          <th>電話番号</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>煌木 太郎</td>
-          <td>taro.kirameki@example.com</td>
-          <td>09011112222</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>煌木 次郎</td>
-          <td>jiro.kirameki@example.com</td>
-          <td>09033334444</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>煌木 花子</td>
-          <td>hanako.kirameki@example.com</td>
-          <td>09055556666</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>名前</th>
-          <th>メールアドレス</th>
-          <th>電話番号</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>煌木 太郎</td>
-          <td>taro.kirameki@example.com</td>
-          <td>09011112222</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>煌木 次郎</td>
-          <td>jiro.kirameki@example.com</td>
-          <td>09033334444</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>煌木 花子</td>
-          <td>hanako.kirameki@example.com</td>
-          <td>09055556666</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>名前</th>
-          <th>メールアドレス</th>
-          <th>電話番号</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>煌木 太郎</td>
-          <td>taro.kirameki@example.com</td>
-          <td>09011112222</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>煌木 次郎</td>
-          <td>jiro.kirameki@example.com</td>
-          <td>09033334444</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>煌木 花子</td>
-          <td>hanako.kirameki@example.com</td>
-          <td>09055556666</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>名前</th>
-          <th>メールアドレス</th>
-          <th>電話番号</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>煌木 太郎</td>
-          <td>taro.kirameki@example.com</td>
-          <td>09011112222</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>煌木 次郎</td>
-          <td>jiro.kirameki@example.com</td>
-          <td>09033334444</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>煌木 花子</td>
-          <td>hanako.kirameki@example.com</td>
-          <td>09055556666</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>名前</th>
-          <th>メールアドレス</th>
-          <th>電話番号</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>煌木 太郎</td>
-          <td>taro.kirameki@example.com</td>
-          <td>09011112222</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>煌木 次郎</td>
-          <td>jiro.kirameki@example.com</td>
-          <td>09033334444</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>煌木 花子</td>
-          <td>hanako.kirameki@example.com</td>
-          <td>09055556666</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>名前</th>
-          <th>メールアドレス</th>
-          <th>電話番号</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>煌木 太郎</td>
-          <td>taro.kirameki@example.com</td>
-          <td>09011112222</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>煌木 次郎</td>
-          <td>jiro.kirameki@example.com</td>
-          <td>09033334444</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>煌木 花子</td>
-          <td>hanako.kirameki@example.com</td>
-          <td>09055556666</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>名前</th>
-          <th>メールアドレス</th>
-          <th>電話番号</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>煌木 太郎</td>
-          <td>taro.kirameki@example.com</td>
-          <td>09011112222</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>煌木 次郎</td>
-          <td>jiro.kirameki@example.com</td>
-          <td>09033334444</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>煌木 花子</td>
-          <td>hanako.kirameki@example.com</td>
-          <td>09055556666</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+
+	<header id="top-head">
+		<div class="inner">
+			<h1 class="logo">Fixed Navi</h1>
+			<nav id="global-nav">
+				<ul>
+					<li><a href="#">HOME</a></li>
+					<li><a href="#">PRODUCT</a></li>
+					<li><a href="#">WORKS</a></li>
+					<li><a href="#">COMPANY</a></li>
+					<li><a href="#">CONTACT</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<div id="main-visual"></div>
+
+	<article>
+		<p>
+			このページは「jQuery+CSS3でスクロールするとアニメーションして狭くなる固定ナビゲーション」のサンプルページです。<br>
+			解説記事は下記をご覧ください。
+		</p>
+		<p><a href="http://www.webopixel.net/javascript/1037.html">jQuery+CSS3でスクロールするとアニメーションして狭くなる固定ナビゲーション</a></p>
+	</article>
+	<footer>
+		<p><a href="https://www.webopixel.net" target="_blank">WEBOPIXEL</a></p>
+	</footer>
 </body>
 </html>
