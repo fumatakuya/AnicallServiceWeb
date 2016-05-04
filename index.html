@@ -15,6 +15,21 @@
   <script src="js/jquery-2.2.3.min.js"></script>
   <!-- BootstrapのJS読み込み -->
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery-2.2.3.min.js"></script>
+  <script>
+    (function($) {
+      $(function() {
+        var $header = $('#top-head');
+        $(window).scroll(function() {
+          if ($(window).scrollTop() > 50) {
+            $header.addClass('fixed');
+          } else {
+            $header.removeClass('fixed');
+          }
+        });
+      });
+    })(jQuery);
+  </script>
 </head>
 <body>
   <!--
@@ -37,280 +52,265 @@
   </div>
 </header>
 <div class="hero-unit">
-    <h1>Twitter Bootstrapの使い方</h1>
-    <p>Twitter Bootstrapの使い方をサンプルもつけながら説明していきます。<br>
+  <h1>Twitter Bootstrapの使い方</h1>
+  <p>Twitter Bootstrapの使い方をサンプルもつけながら説明していきます。<br>
     下記説明以外にも機能はありますが詳しく知りたい方は本家ページを参照して下さい。</p>
-</div>
-<div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>名前</th>
-        <th>メールアドレス</th>
-        <th>電話番号</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>煌木 太郎</td>
-        <td>taro.kirameki@example.com</td>
-        <td>09011112222</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>煌木 次郎</td>
-        <td>jiro.kirameki@example.com</td>
-        <td>09033334444</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>煌木 花子</td>
-        <td>hanako.kirameki@example.com</td>
-        <td>09055556666</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>名前</th>
-        <th>メールアドレス</th>
-        <th>電話番号</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>煌木 太郎</td>
-        <td>taro.kirameki@example.com</td>
-        <td>09011112222</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>煌木 次郎</td>
-        <td>jiro.kirameki@example.com</td>
-        <td>09033334444</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>煌木 花子</td>
-        <td>hanako.kirameki@example.com</td>
-        <td>09055556666</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>名前</th>
-        <th>メールアドレス</th>
-        <th>電話番号</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>煌木 太郎</td>
-        <td>taro.kirameki@example.com</td>
-        <td>09011112222</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>煌木 次郎</td>
-        <td>jiro.kirameki@example.com</td>
-        <td>09033334444</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>煌木 花子</td>
-        <td>hanako.kirameki@example.com</td>
-        <td>09055556666</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>名前</th>
-        <th>メールアドレス</th>
-        <th>電話番号</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>煌木 太郎</td>
-        <td>taro.kirameki@example.com</td>
-        <td>09011112222</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>煌木 次郎</td>
-        <td>jiro.kirameki@example.com</td>
-        <td>09033334444</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>煌木 花子</td>
-        <td>hanako.kirameki@example.com</td>
-        <td>09055556666</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>名前</th>
-        <th>メールアドレス</th>
-        <th>電話番号</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>煌木 太郎</td>
-        <td>taro.kirameki@example.com</td>
-        <td>09011112222</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>煌木 次郎</td>
-        <td>jiro.kirameki@example.com</td>
-        <td>09033334444</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>煌木 花子</td>
-        <td>hanako.kirameki@example.com</td>
-        <td>09055556666</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>名前</th>
-        <th>メールアドレス</th>
-        <th>電話番号</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>煌木 太郎</td>
-        <td>taro.kirameki@example.com</td>
-        <td>09011112222</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>煌木 次郎</td>
-        <td>jiro.kirameki@example.com</td>
-        <td>09033334444</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>煌木 花子</td>
-        <td>hanako.kirameki@example.com</td>
-        <td>09055556666</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>名前</th>
-        <th>メールアドレス</th>
-        <th>電話番号</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>煌木 太郎</td>
-        <td>taro.kirameki@example.com</td>
-        <td>09011112222</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>煌木 次郎</td>
-        <td>jiro.kirameki@example.com</td>
-        <td>09033334444</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>煌木 花子</td>
-        <td>hanako.kirameki@example.com</td>
-        <td>09055556666</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>名前</th>
-        <th>メールアドレス</th>
-        <th>電話番号</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>煌木 太郎</td>
-        <td>taro.kirameki@example.com</td>
-        <td>09011112222</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>煌木 次郎</td>
-        <td>jiro.kirameki@example.com</td>
-        <td>09033334444</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>煌木 花子</td>
-        <td>hanako.kirameki@example.com</td>
-        <td>09055556666</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<script src="js/jquery-2.2.3.min.js"></script>
-<script>
-  (function($) {
-    $(function() {
-      var $header = $('#top-head');
-      $(window).scroll(function() {
-        if ($(window).scrollTop() > 50) {
-          $header.addClass('fixed');
-        } else {
-          $header.removeClass('fixed');
-        }
-      });
-    });
-  })(jQuery);
-</script>
+  </div>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>名前</th>
+          <th>メールアドレス</th>
+          <th>電話番号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>煌木 太郎</td>
+          <td>taro.kirameki@example.com</td>
+          <td>09011112222</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>煌木 次郎</td>
+          <td>jiro.kirameki@example.com</td>
+          <td>09033334444</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>煌木 花子</td>
+          <td>hanako.kirameki@example.com</td>
+          <td>09055556666</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>名前</th>
+          <th>メールアドレス</th>
+          <th>電話番号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>煌木 太郎</td>
+          <td>taro.kirameki@example.com</td>
+          <td>09011112222</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>煌木 次郎</td>
+          <td>jiro.kirameki@example.com</td>
+          <td>09033334444</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>煌木 花子</td>
+          <td>hanako.kirameki@example.com</td>
+          <td>09055556666</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>名前</th>
+          <th>メールアドレス</th>
+          <th>電話番号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>煌木 太郎</td>
+          <td>taro.kirameki@example.com</td>
+          <td>09011112222</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>煌木 次郎</td>
+          <td>jiro.kirameki@example.com</td>
+          <td>09033334444</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>煌木 花子</td>
+          <td>hanako.kirameki@example.com</td>
+          <td>09055556666</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>名前</th>
+          <th>メールアドレス</th>
+          <th>電話番号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>煌木 太郎</td>
+          <td>taro.kirameki@example.com</td>
+          <td>09011112222</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>煌木 次郎</td>
+          <td>jiro.kirameki@example.com</td>
+          <td>09033334444</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>煌木 花子</td>
+          <td>hanako.kirameki@example.com</td>
+          <td>09055556666</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>名前</th>
+          <th>メールアドレス</th>
+          <th>電話番号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>煌木 太郎</td>
+          <td>taro.kirameki@example.com</td>
+          <td>09011112222</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>煌木 次郎</td>
+          <td>jiro.kirameki@example.com</td>
+          <td>09033334444</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>煌木 花子</td>
+          <td>hanako.kirameki@example.com</td>
+          <td>09055556666</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>名前</th>
+          <th>メールアドレス</th>
+          <th>電話番号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>煌木 太郎</td>
+          <td>taro.kirameki@example.com</td>
+          <td>09011112222</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>煌木 次郎</td>
+          <td>jiro.kirameki@example.com</td>
+          <td>09033334444</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>煌木 花子</td>
+          <td>hanako.kirameki@example.com</td>
+          <td>09055556666</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>名前</th>
+          <th>メールアドレス</th>
+          <th>電話番号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>煌木 太郎</td>
+          <td>taro.kirameki@example.com</td>
+          <td>09011112222</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>煌木 次郎</td>
+          <td>jiro.kirameki@example.com</td>
+          <td>09033334444</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>煌木 花子</td>
+          <td>hanako.kirameki@example.com</td>
+          <td>09055556666</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>名前</th>
+          <th>メールアドレス</th>
+          <th>電話番号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>煌木 太郎</td>
+          <td>taro.kirameki@example.com</td>
+          <td>09011112222</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>煌木 次郎</td>
+          <td>jiro.kirameki@example.com</td>
+          <td>09033334444</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>煌木 花子</td>
+          <td>hanako.kirameki@example.com</td>
+          <td>09055556666</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
