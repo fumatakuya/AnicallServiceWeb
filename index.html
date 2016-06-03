@@ -1,172 +1,61 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Anicall</title>
-  <!-- BootstrapのCSS読み込み -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Polygon arrays</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 35.589842, lng: 139.739759},
+    zoom: 5,
+  });
 
-  <!-- OTHER STYLES -->
-  <link href="css/Anicall-Service-Web-style.css" rel="stylesheet">
+  var triangleCoords = [
+    {lat: 35.589910, lng: 139.739265},
+    {lat: 35.589526, lng: 139.739550},
+    {lat: 35.589609, lng: 139.739729},
+    {lat: 35.589985, lng: 139.739459}
+  ];
 
-  <!-- jQuery読み込み -->
-  <script src="js/jquery-2.2.3.min.js"></script>
-  <!-- BootstrapのJS読み込み -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery-2.2.3.min.js"></script>
-  <script>
-    (function($) {
-      $(function() {
-        var $header = $('#top-head');
-        $(window).scroll(function() {
-          if ($(window).scrollTop() > 50) {
-            $header.addClass('fixed');
-          } else {
-            $header.removeClass('fixed');
-          }
-        });
-      });
-    })(jQuery);
-  </script>
-</head>
-<body>
-  <!--
-  =================================
-  HEADER
-  =================================
--->
-<header id="top-head">
-  <div class="inner">
-    <h1 class="logo">Anicall</h1>
-    <nav id="global-nav">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">aaaa</a></li>
-        <li><a href="#">bbbb</a></li>
-        <li><a href="#">cccc</a></li>
-        <li><a href="#">dddd</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<div class="hero-unit">
-  <h1>Twitter Bootstrapの使い方</h1>
-  <p>Twitter Bootstrapの使い方をサンプルもつけながら説明していきます。<br>
-    下記説明以外にも機能はありますが詳しく知りたい方は本家ページを参照して下さい。</p>
-  </div>
-  <div class="container">
-    <div class="panel panel-danger">
-      <div class="panel-heading">
-        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 統計
-      </div>
-      <div class="panel-body">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>最高速度</th>
-              <th><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>最高速度時</th>
-              <th><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>最高心拍数</th>
-              <th><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>平均速度</th>
-              <th><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>平均心拍数</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>60 km/h</td>
-              <td>120 bpm</td>
-              <td>122 bpm</td>
-              <td>15 km/h</td>
-              <td>70 bpm</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+  var bermudaTriangle = new google.maps.Polygon({paths: triangleCoords});
 
-  <div class="container">
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        <span class="glyphicon glyphicon-flag" aria-hidden="true"></span> 3 Furlong time
-      </div>
-      <div class="panel-body">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>1F</th>
-              <th>2F</th>
-              <th>3F</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>15 秒</td>
-              <td>14 秒</td>
-              <td>12 秒</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-    <div class="container">
-    <div class="panel panel-danger">
-      <div class="panel-heading">
-        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 統計
-      </div>
-      <div class="panel-body">
-        <table class="table table-striped table-condensed">
-          <thead>
-            <tr>
-              <th><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>最高速度</th>
-              <th><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>最高速度時の心拍数</th>
-              <th><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>最高心拍数</th>
-              <th><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>平均速度</th>
-              <th><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>平均心拍数</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>60 km/h</td>
-              <td>120 bpm</td>
-              <td>122 bpm</td>
-              <td>15 km/h</td>
-              <td>70 bpm</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+  google.maps.event.addListener(map, 'click', function(e) {
+    var resultColor =
+        google.maps.geometry.poly.containsLocation(e.latLng, bermudaTriangle) ?
+        'red' :
+        'green';
 
-  <div class="container">
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        <span class="glyphicon glyphicon-flag" aria-hidden="true"></span> 3 Furlong time
-      </div>
-      <div class="panel-body">
-        <table class="table table-striped table-condensed">
-          <thead>
-            <tr>
-              <th><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> 1F</th>
-              <th><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> 2F</th>
-              <th><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> 3F</th>
-              <th><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 合計</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>15 秒</td>
-              <td>14 秒</td>
-              <td>12 秒</td>
-              <td>41 秒</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</body>
+    new google.maps.Marker({
+      position: e.latLng,
+      map: map,
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        fillColor: resultColor,
+        fillOpacity: .2,
+        strokeColor: 'white',
+        strokeWeight: .5,
+        scale: 10
+      }
+    });
+  });
+}
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7dSrG92cnyLPpNJ7hxGfujuzKQLAwHqU&signed_in=true&libraries=geometry&callback=initMap"
+         async defer></script>
+  </body>
 </html>
